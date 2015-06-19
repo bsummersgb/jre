@@ -1,0 +1,15 @@
+<h1> <%= "#{@guest.first_name}" " #{@guest.last_name}" %> </h1>
+
+<p>
+  <%= @guest.description %>
+</p>
+
+<ul>
+  <% @guest.links.each do |link| %>
+    <li><%= link_to "#{link.title}", url_for(link.url) %>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to "Back to Guests", guests_url %>
+</p>

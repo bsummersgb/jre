@@ -1,0 +1,9 @@
+<h1>Guests Index Page</h1>
+
+
+
+<% @guests.each do |guest| %>
+  <div>
+    <%= link_to "#{guest.first_name}", guest_url(guest) %>
+  </div>
+<% end %>

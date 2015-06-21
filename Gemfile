@@ -31,6 +31,7 @@ end
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'twitter'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'rmagick'

@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
-  resources :users
+  resources :tweets
 
   resources :guests do
     resources :links
   end
   root 'welcome#index'
-  # match 'auth/twitter/callback', via: [:get, :post],  to: 'sessions#create'
 end
 
 

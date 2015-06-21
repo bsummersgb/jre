@@ -20,6 +20,8 @@
       </div>
 
       <div class="col-md-5">
+        <div class="tweet-vote">
+        </div>
         <ul>
           <% @guest.links.each do |link| %>
             <li><%= link_to "#{link.title}", url_for(link.url) %>

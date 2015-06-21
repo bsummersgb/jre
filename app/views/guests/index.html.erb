@@ -4,6 +4,6 @@
 
 <% @guests.each do |guest| %>
   <div>
-    <%= link_to "#{guest.first_name}", guest_url(guest) %>
+    <%= link_to "#{guest.first_name} #{guest.last_name}", guest_url(guest) %>
   </div>
 <% end %>

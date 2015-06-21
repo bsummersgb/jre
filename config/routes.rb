@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get '/auth/:provider/callback', to: 'sessions#create'
+  resources :users
 
   resources :guests do
     resources :links
   end
   root 'welcome#index'
-  match 'auth/twitter/callback', via: [:get, :post],  to: 'sessions#create'
+  # match 'auth/twitter/callback', via: [:get, :post],  to: 'sessions#create'
 end
 
 

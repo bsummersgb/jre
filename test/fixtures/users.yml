@@ -4,8 +4,14 @@ one:
   provider: MyString
   uid: MyString
   name: MyString
+  token: MyString
+  secret: MyString
+  profile_image: MyString
 
 two:
   provider: MyString
   uid: MyString
   name: MyString
+  token: MyString
+  secret: MyString
+  profile_image: MyString

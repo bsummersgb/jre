@@ -1,15 +1,31 @@
-<h1> <%= "#{@guest.first_name}" " #{@guest.last_name}" %> </h1>
+<section class="hero">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 sidebar">
 
-<p>
-  <%= @guest.description %>
-</p>
+      </div>
 
-<ul>
-  <% @guest.links.each do |link| %>
-    <li><%= link_to "#{link.title}", url_for(link.url) %>
-  <% end %>
-</ul>
+      <div class="col-md-4">
+        <h1><%= "#{@guest.first_name} #{@guest.last_name}" %></h1>
+          <div>
+            <%=  cl_image_tag("#{@guest.profile_pic}", :width => 400, :height => 200, :crop => :fill,
+                                                        :gravity => :face, :alt => "#{@guest.last_name} Head Shot") %>
+          </div>
+          <p>
+            <%= @guest.description %>
+          </p>
+          <p>
+            <%= link_to "Back to Guests", guests_url %>
+          </p>
+      </div>
 
-<p>
-  <%= link_to "Back to Guests", guests_url %>
-</p>
+      <div class="col-md-5">
+        <ul>
+          <% @guest.links.each do |link| %>
+            <li><%= link_to "#{link.title}", url_for(link.url) %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

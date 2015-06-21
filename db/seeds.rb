@@ -13,14 +13,14 @@ russell = Guest.create!(first_name: "Russell", last_name: "Brand",
                   in 2013, in which he encouraged the British electorate not to vote and endorsed a system based on the \"massive
                   redistribution of wealth\" to replace the status quo. In 2014, he launched his political-comedy web series,
                   The Trews, released a book, Revolution and began work on a documentary about financial inequality with
-                  Michael Winterbottom." )
+                  Michael Winterbottom.", profile_pic: "brand-hs_mfggw8.jpg")
 
 bruce = Guest.create!(first_name: "Bruce", last_name: "Buffer",
                   description: "Bruce Anthony Buffer is the official Octagon announcer for UFC events. On UFC broadcasts, he
                   is introduced as the \"Veteran Voice of the Octagon\". He is the half brother of the well-known boxing and
                   professional wrestling ring announcer Michael Buffer, and is the President and CEO of their company \"The Buffer
                   Partnership\". Both Michael and Bruce are grandsons of late boxer Johnny Buff. Buffer holds a black belt in
-                  Tang Soo Do and has fought as a kickboxer.")
+                  Tang Soo Do and has fought as a kickboxer.", profile_pic: "buffer-hs_vyhsal.jpg")
 
 links1 = [ { title: "Paxman vs Brand Interview", url: "https://www.youtube.com/watch?v=3YR4CseY9pk" },
           { title: "Podcast", url: "https://audioboom.com/channel/therussellbrandpodcast" },

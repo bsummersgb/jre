@@ -31,10 +31,19 @@
           <p>
             <%= link_to "Back to Guests", guests_url %>
           </p>
-          <div class="col-md-12">
-            <h4>
-              Links
-            </h4>
+          <div class="row">
+            <div class="col-md-12">
+              <h4>
+                Links
+              </h4>
+              <div>
+                <% @guest.links.each do |link| %>
+                  <li><%= link_to "#{link.title}", url_for(link.url) %></li>
+                  <span><%= cl_image_tag(link.image,:width => 280, :height => 180, :crop => :fill,
+                                                              :gravity => :face ) %></span>
+                <% end %>
+              </div>
+            </div>
           </div>
       </div>
 
@@ -45,19 +54,6 @@
             <%= "Tweet form to go here --" * 60 %>
           </p>
         </div>
-        <ul>
-          <% @guest.links.each do |link| %>
-            <li><%= link_to "#{link.title}", url_for(link.url) %>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class=" col-md-offset-3 col-md-9">
-        <p>
-          dsfs
-        </p>
       </div>
     </div>
   </div>

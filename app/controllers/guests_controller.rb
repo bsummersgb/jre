@@ -6,7 +6,6 @@ class GuestsController < ApplicationController
   end
 
   def show
-
   end
 
   private

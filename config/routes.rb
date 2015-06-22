@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/sessions', to: 'sessions#destroy'
   resources :tweets
 
   resources :guests do
     resources :links
+    resources :votes
   end
-  root 'welcome#index'
+  root 'guests#index'
 end
 
 

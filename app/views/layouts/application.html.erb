@@ -11,8 +11,9 @@
   <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div>
-          <% if current_user %>
+          <% if logged_in? %>
             Signed in as <%= current_user.name %>!
+            <%= link_to "Log Out", sessions_path, method: :delete %>
           <% else %>
             <%= link_to "Sign in with Twitter", "/auth/twitter" %>
           <% end %>

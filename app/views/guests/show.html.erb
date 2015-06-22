@@ -1,14 +1,28 @@
-<section class="hero">
+<style>
+  .image-container {
+    background-image: url(<%= asset_path @guest.banner_pic %>);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1000px auto;
+    height: 1000px;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<section>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3 sidebar">
+        <div class="image-container">
 
+        </div>
       </div>
 
       <div class="col-md-4">
         <h1><%= "#{@guest.first_name} #{@guest.last_name}" %></h1>
           <div>
-            <%=  cl_image_tag("#{@guest.profile_pic}", :width => 400, :height => 200, :crop => :fill,
+            <%=  cl_image_tag(@guest.profile_pic, :width => 400, :height => 200, :crop => :fill,
                                                         :gravity => :face, :alt => "#{@guest.last_name} Head Shot") %>
           </div>
           <p>
@@ -17,16 +31,33 @@
           <p>
             <%= link_to "Back to Guests", guests_url %>
           </p>
+          <div class="col-md-12">
+            <h4>
+              Links
+            </h4>
+          </div>
       </div>
 
       <div class="col-md-5">
-        <div class="tweet-vote">
+        <div class="tweet-vote"><br>
+          <h3><%= "Use Your Daily Tweet Vote for #{@guest.first_name}!" %></h3>
+          <p>
+            <%= "Tweet form to go here --" * 60 %>
+          </p>
         </div>
         <ul>
           <% @guest.links.each do |link| %>
             <li><%= link_to "#{link.title}", url_for(link.url) %>
           <% end %>
         </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class=" col-md-offset-3 col-md-9">
+        <p>
+          dsfs
+        </p>
       </div>
     </div>
   </div>

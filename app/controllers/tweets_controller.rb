@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :check_logged_in
   respond_to :html
 
   def index
@@ -13,6 +14,7 @@ class TweetsController < ApplicationController
 
   def new
     @tweet = Tweet.new
+    @tweet.body = "Yo @russelbrand come on the Joe Rogan show! #joerogan"
     respond_with(@tweet)
   end
 

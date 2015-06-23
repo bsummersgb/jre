@@ -1,6 +1,7 @@
 class Tweet < ActiveRecord::Base
   belongs_to :user
-  
+  belongs_to :guest
+
   validates :user_id, :body, presence: true
 
   before_create :post_to_twitter

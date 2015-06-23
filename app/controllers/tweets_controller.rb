@@ -10,11 +10,12 @@ class TweetsController < ApplicationController
 
   def show
     redirect_to guests_path
+
   end
 
   def new
     @tweet = Tweet.new
-    @tweet.body = "Yo @russelbrand come on the Joe Rogan show! #joerogan"
+    @tweet.body = "Hey @guest.twitter_handle please be a guest on the Joe Rogan Experience! #JoeRoganExperience #JoeRoganGuestRequest"
     respond_with(@tweet)
   end
 
@@ -23,9 +24,11 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
-    @tweet.user_id = current_user.id
-    @tweet.save
-    respond_with(@tweet)
+    @tweet.user = current_user
+    if @tweet.save
+      @tweet.guest.increment!(:votes)
+    end
+    redirect_to :back
   end
 
   def update
@@ -44,7 +47,6 @@ class TweetsController < ApplicationController
     end
 
     def tweet_params
-      params.require(:tweet).permit(:user_id, :body)
+      params.require(:tweet).permit(:user_id, :body, :guest_id)
     end
-
 end

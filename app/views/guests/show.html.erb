@@ -1,3 +1,4 @@
+<!-- Style tag included to access @guest variable -->
 <style>
   .image-container {
     background-image: url(<%= asset_path @guest.banner_pic %>);
@@ -34,9 +35,10 @@
       <div class="col-md-5">
         <div class="tweet-vote"><br>
           <h3><%= "Use Your Daily Tweet Vote for #{@guest.first_name}!" %></h3>
-          <p>
-            <%= "Tweet form to go here --" * 60 %>
-          </p>
+          <%= render 'tweets/form' %>
+        </div>
+        <div class="votes">
+          <%= "Votes #{@guest.votes}" %>
         </div>
       </div>
     </div>
@@ -44,13 +46,17 @@
     <div class="row">
       <div class="col-md-offset-3 col-md-9">
         <h3>Links</h3>
+        <div class="row">
         <% @guest.links.each do |link| %>
-          <div class="links">
-            <%= cl_image_tag(link.image,:width => 250, :height => 150, :crop => :fill,
-                                                            :gravity => :face ) %>
-            <%= link_to "#{link.title}", url_for(link.url) %>
+          <div class="col-md-4">
+            <div class="links">
+              <%= link_to(cl_image_tag(link.image,:width => 250, :height => 150, :crop => :fill,
+                                                              :gravity => :face ), url_for(link.url), class: 'img-responsive') %>
+              <%= link_to "#{link.title}", url_for(link.url) %>
+            </div>
           </div>
         <% end %>
+      </div>
       </div>
     </div>
   </div>

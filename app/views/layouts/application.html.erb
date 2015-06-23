@@ -10,12 +10,15 @@
 
   <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <div>
+        <div class="navbar-header">
+          <span class="jrgr">Joe Rogan Guest Request</span>
           <% if logged_in? %>
+          <span class="twitter-status">
             Signed in as <%= current_user.name %>!
-            <%= link_to "Log Out", sessions_path, method: :delete %>
+            <%= link_to "| Log Out", sessions_path, method: :delete %>
           <% else %>
             <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+          </span>
           <% end %>
         </div>
       </div>

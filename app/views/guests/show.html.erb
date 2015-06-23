@@ -10,16 +10,14 @@
   }
 </style>
 
-<section>
+<section class="main">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3 sidebar">
         <div class="image-container">
-
         </div>
       </div>
-
-      <div class="col-md-4">
+      <div class="col-md-offset-3 col-md-4">
         <h1><%= "#{@guest.first_name} #{@guest.last_name}" %></h1>
           <div>
             <%=  cl_image_tag(@guest.profile_pic, :width => 400, :height => 200, :crop => :fill,
@@ -31,20 +29,6 @@
           <p>
             <%= link_to "Back to Guests", guests_url %>
           </p>
-          <div class="row">
-            <div class="col-md-12">
-              <h4>
-                Links
-              </h4>
-              <div>
-                <% @guest.links.each do |link| %>
-                  <li><%= link_to "#{link.title}", url_for(link.url) %></li>
-                  <span><%= cl_image_tag(link.image,:width => 280, :height => 180, :crop => :fill,
-                                                              :gravity => :face ) %></span>
-                <% end %>
-              </div>
-            </div>
-          </div>
       </div>
 
       <div class="col-md-5">
@@ -54,6 +38,19 @@
             <%= "Tweet form to go here --" * 60 %>
           </p>
         </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-offset-3 col-md-9">
+        <h3>Links</h3>
+        <% @guest.links.each do |link| %>
+          <div class="links">
+            <%= cl_image_tag(link.image,:width => 250, :height => 150, :crop => :fill,
+                                                            :gravity => :face ) %>
+            <%= link_to "#{link.title}", url_for(link.url) %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

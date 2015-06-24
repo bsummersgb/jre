@@ -27,6 +27,8 @@ class TweetsController < ApplicationController
     @tweet.user = current_user
     if @tweet.save
       @tweet.guest.increment!(:votes)
+    else
+      flash[:notice] = @tweet.errors.full_messages.join(", ")
     end
     redirect_to :back
   end

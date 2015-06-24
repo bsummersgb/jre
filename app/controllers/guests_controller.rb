@@ -2,7 +2,7 @@ class GuestsController < ApplicationController
   before_action :find_guest, except: [:index, :new]
 
   def index
-    @guests = Guest.all
+    @guests = Guest.all.sort { |a,b| b.votes <=> a.votes }
   end
 
   def show

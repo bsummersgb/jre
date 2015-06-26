@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def check_logged_in
     if !logged_in?
-      redirect_to root_path, notice: 'You must be logged in to do that'
+      redirect_to root_path, notice: 'You must be logged in via Twitter to do that'
     end
   end
 end

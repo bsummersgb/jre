@@ -21,10 +21,9 @@
 }
 
 .jrgr {
-  font-size: 20px;
-}
-
-.twitter-status {
+  font-size: 30px;
+  font-family: 'Arvo', serif;
+  padding-top: 15px;
 }
 
 .navbar-default {
@@ -36,4 +35,14 @@
   background-color: black;
   border: none;
   border-radius: 0px;
+}
+
+.alert .alert-warning .alert-dismissible {
+  z-index: 1031;
+  background-color: red;
+}
+
+.twitter-status {
+  text-align: right;
+  color: white;
 }

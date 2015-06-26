@@ -20,7 +20,7 @@
       </div>
       <div class="col-md-offset-3 col-md-4">
         <h1><%= "#{@guest.first_name} #{@guest.last_name}" %></h1>
-          <div>
+          <div class= "profile_pic">
             <%=  cl_image_tag(@guest.profile_pic, :width => 400, :height => 200, :crop => :fill,
                                                         :gravity => :face, :alt => "#{@guest.last_name} Head Shot") %>
           </div>
@@ -56,7 +56,7 @@
             </div>
           </div>
         <% end %>
-      </div>
+        </div>
       </div>
     </div>
   </div>

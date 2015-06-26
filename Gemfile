@@ -39,6 +39,7 @@ gem 'cloudinary'
 gem 'acts_as_votable'
 gem 'cancancan'
 gem 'rolify'
+gem 'countdown'
 
 
 

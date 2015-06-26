@@ -6,16 +6,41 @@
         </div>
       </div>
       <div class="col-md-offset-3 col-md-9">
-        <h1 class="index-header">Guests Index Page</h1>
-
-        <% @guests.each do |guest| %>
-          <div>
-            <%= link_to "#{guest.first_name} #{guest.last_name}", guest_url(guest) %>
-            <%= link_to(cl_image_tag(guest.profile_pic, :width => 200, :height => 100, :crop => :fill,
-                                                        :gravity => :face, :alt => "#{guest.last_name} Head Shot"),
-                                                        guest_url(guest), class: 'img-responsive') %>
-            <%= guest.votes %>
-          </div>
-        <% end %>
+        <div id="countdown-timer"></div>
+        <h2 class="index-header">Leaderboard</h2>
+        <div class="bs-table">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Guest</th>
+              <th></th>
+              <th>Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% i = 1 %>
+            <% @guests.each do |guest| %>
+            	<tr>
+                <td id="rank"><%= i %></td>
+                <td><%= link_to "#{guest.first_name} #{guest.last_name}", guest_url(guest) %></td>
+                <td><%= link_to(cl_image_tag(guest.profile_pic, :width => 200, :height => 100, :crop => :fill,
+                                                            :gravity => :face, :alt => "#{guest.last_name} Head Shot"),
+                                                            guest_url(guest), class: 'img-responsive') %></td>
+                <td class="votes"><div id="votes"><%= guest.votes %></div></td>
+              </tr>
+              <% i += 1 %>
+            <% end %>
+          </tbody>
+        </table>
       </div>
 </section>
+
+<script type="text/javascript">
+   $("#countdown-timer")
+   .countdown("2015/07/01", function(event) {
+     $(this).text(
+       event.strftime('Voting period ends in: %-D days %-H hours %-M minutes %S seconds')
+     );
+   });
+</script>

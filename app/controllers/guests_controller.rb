@@ -2,7 +2,8 @@ class GuestsController < ApplicationController
   before_action :find_guest, except: [:index, :new]
 
   def index
-    @guests = Guest.all.sort { |a,b| b.votes <=> a.votes }
+    # @guests = Guest.all.sort { |a,b| b.votes <=> a.votes } this works but keep your controllers skinny by using scope in the model instead
+    @guests = Guest.order_by_votes
   end
 
   def show
